@@ -2,7 +2,7 @@ export default class TimeService {
     static oneDay = 24 * 60 * 60 * 1000;
 
     static between(startTime, endTime) {
-        // var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        // var oneDay = 24 * 60 * 60 * 1000; // TODO: For test
         var firstDate = new Date(startTime);
         var secondDate = new Date(endTime);
         let timeRemaining = parseInt((firstDate.getTime() - secondDate.getTime()) / 1000);
