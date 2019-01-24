@@ -12,7 +12,7 @@ function convertToSearch(title) {
     slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
     slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
     slug = slug.replace(/đ/gi, 'd');
-    // Xóa các ký tự đặt biệt
+    // Xóa các ký tự đặt biệt (Off)
     // slug = slug.replace(/`|~|!|@|#|\||\$|%|\^|&|\*|\(|\)|\+|=|,|\.|\/|\?|>|<|'|"|:|;|_/gi, '');
     //Đổi khoảng trắng thành ký tự gạch ngang
     slug = slug.replace(/ /gi, "");
