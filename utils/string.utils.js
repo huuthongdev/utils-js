@@ -1,4 +1,4 @@
-export default function changeToSlug(title) {
+export default function ToSlug(title) {
     let slug;
     //Đổi chữ hoa thành chữ thường
     slug = title.toLowerCase();
@@ -26,4 +26,20 @@ export default function changeToSlug(title) {
     slug = slug.replace(/@-|-@|@/gi, '');
     //In slug ra textbox có id “slug”
     return slug;
+}
+
+export function SearchString(searchText, string) {
+    return convertToSearch(string).search(convertToSearch(searchText)) !== -1;
+}
+
+export function FormatPhoneNumber(tel) {
+    var C = tel.replace(/[^0-9xX]/g, "").replace(/[xX]/g, "x");
+    var B = "";
+    if (C.indexOf("x") > -1) {
+        B = " " + C.substr(C.indexOf("x"));
+        C = C.substr(0, C.indexOf("x"))
+    }
+    if (C.length === 10) return C.replace(/(...)(...)(....)/g, "($1) $2 $3") + B;
+    if (C.length === 11) return C.replace(/(....)(...)(...)/g, "($1) $2 $3") + B;
+    return tel;
 }

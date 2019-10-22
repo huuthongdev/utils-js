@@ -1,4 +1,21 @@
-export function isEqual(value, other) {
+export function CopyStringToClipboard(str) {
+    // Create new element
+    var el = document.createElement('textarea');
+    // Set value (string to be copied)
+    el.value = str;
+    // Set non-editable to avoid focus and move outside of view
+    el.setAttribute('readonly', '');
+    el.style = { position: 'absolute', left: '-9999px' };
+    document.body.appendChild(el);
+    // Select text inside element
+    el.select();
+    // Copy text to clipboard
+    document.execCommand('copy');
+    // Remove temporary element
+    document.body.removeChild(el);
+}
+
+export function IsEqual(value, other) {
 
     // Get the value type
     var type = Object.prototype.toString.call(value);
@@ -56,3 +73,14 @@ export function isEqual(value, other) {
     // If nothing failed, return true
     return true;
 };
+
+export function PageNavigation(pageNumber, totalOffPage, data) {
+    if (!data) return [];
+    const start = ((pageNumber - 1) * totalOffPage);
+    const end = start + totalOffPage - 1;
+    let result = [];
+    for (let i = start; i <= end && data[i] !== undefined; ++i) {
+        result.push(data[i]);
+    }
+    return result;
+}
