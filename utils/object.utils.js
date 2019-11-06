@@ -61,5 +61,5 @@ export function IsEmpty(obj) {
 }
 
 export function IsHasValue(obj) {
-    return !isEmpty(obj);
+    return !IsEmpty(obj);
 }

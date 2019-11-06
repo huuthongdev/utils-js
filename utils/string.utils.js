@@ -1,4 +1,4 @@
-export default function ToSlug(title) {
+export function ToSlug(title) {
     let slug;
     //Đổi chữ hoa thành chữ thường
     slug = title.toLowerCase();
@@ -43,3 +43,28 @@ export function FormatPhoneNumber(tel) {
     if (C.length === 11) return C.replace(/(....)(...)(...)/g, "($1) $2 $3") + B;
     return tel;
 }
+
+export const Capitalize = ([first, ...rest]) =>
+  first.toUpperCase() + rest.join('');
+// Ex:  
+// capitalize('fooBar'); // 'FooBar'
+// capitalize('fooBar', true); // 'FooBar'
+
+export const Decapitalize = ([first, ...rest]) =>
+  first.toLowerCase() + rest.join('')
+// Ex:
+// decapitalize('FooBar'); // 'fooBar'
+// decapitalize('FooBar'); // 'fooBar'
+
+export const CapitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase());
+// Ex:
+// capitalizeEveryWord('hello world!'); // 'Hello World!'
+
+export function StripHTMLTags(str) {
+    return str.replace(/<[^>]*>/g, '');
+}
+
+export const AverageBy = (arr, fn) => arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => acc + val, 0) / arr.length;
+// Ex:
+// averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 5
+// averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 5
