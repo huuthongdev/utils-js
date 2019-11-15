@@ -68,3 +68,8 @@ export const AverageBy = (arr, fn) => arr.map(typeof fn === 'function' ? fn : va
 // Ex:
 // averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 5
 // averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 5
+
+export function IsPhoneNumber(phone) {
+    if (!phone) return false;
+    return /^(\+?84|0)(1\d{9}|3\d{8}|5\d{8}|7\d{8}|8\d{8}|9\d{8})$/.test(phone);
+}
